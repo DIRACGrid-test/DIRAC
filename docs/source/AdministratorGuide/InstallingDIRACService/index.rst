@@ -165,7 +165,7 @@ be taken:
         #  production release)
         Release = v6r10p4
         #  Python version of the installation
-        PythonVersion = 26
+        PythonVersion = 27
         #  To install the Server version of DIRAC (the default is client)
         InstallType = server
         #  LCG python bindings for SEs and LFC. Specify this option only if your installation
@@ -254,9 +254,16 @@ be taken:
           #  User name used to connect the DB server
           User = Dirac # default value
           #  Password for database user acess. Must be set for SystemAdministrator Service to work
-          Password = XXXX
-          #  Password for root DB user. Must be set for SystemAdministrator Service to work
-          RootPwd = YYYY
+          #  Commented out here: you should add the Password entry to the local #DIRACROOT/etc/dirac.cfg file
+          #    so that it won't be propagated to the central cfg (the one exposed by the Configuration Service)
+          # Password = XXXX
+          #
+          #  User name and Password for root DB user. Must be set for SystemAdministrator Service to work
+          #  Commented out here: you should add the RootPwd entry to the local #DIRACROOT/etc/dirac.cfg file
+          #    so that it won't be propagated to the central cfg (the one exposed by the Configuration Service)
+          # RootUser = admin
+          # RootPwd = YYYY
+          #
           #  location of DB server. Must be set for SystemAdministrator Service to work
           Host = localhost # default
           #  There are 2 flags for small and large installations Set either of them to True/yes when appropriated
