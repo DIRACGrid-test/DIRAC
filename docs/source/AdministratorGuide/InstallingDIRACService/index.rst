@@ -239,9 +239,23 @@ be taken:
         #  For a test installation you can use 127.0.0.1
         # Host = dirac.cern.ch
         Host = 
+        # List of Systems to be installed
+        Systems = Accounting
+        Systems += Configuration
+        Systems += DataManagement
+        Systems += Framework
+        Systems += RequestManagement
+        Systems += ResourceStatus
+        Systems += StorageManagement
+        Systems += Transformation
+        Systems += WorkloadManagement
+        # List of DataBases to be installed
+        Databases = InstalledComponentsDB
+        # Databases += ResourceStatusDB
         #  List of Services to be installed
         Services  = Configuration/Server
         Services += Framework/SystemAdministrator
+        Services += Framework/ComponentMonitoring
         #  Flag determining whether the Web Portal will be installed
         WebPortal = yes
         #
@@ -338,7 +352,7 @@ operation is the registration of the new host in the already functional Configur
         #  If this flag is set to yes, each DIRAC update will be installed
         #  in a separate directory, not overriding the previous ones
         UseVersionsDir = yes
-        #  The directory of the DIRAC software installation
+        #  The directory of the DIRAC software installation (AKA $DIRACROOT)
         TargetPath = /opt/dirac
         #  DIRAC extra packages to be installed (Web is required if you are installing the Portal on 
         #  this server).
@@ -379,9 +393,10 @@ operation is the registration of the new host in the already functional Configur
         #  Used to build the URLs the services will publish
         # Host = dirac.cern.ch
         Host = 
-        #  List of Services to be installed
-        Services  = Configuration/Server
-        Services += Framework/SystemAdministrator
+        #  List of Services to be installed (add what you prefer here, what follows are just examples)
+        Services  = Framework/SystemAdministrator
+        # Services += Framework/SystemAdministrator
+        # Services += Framework/ComponentMonitoring
 
   - Now run install_site.sh giving the edited CFG file as the argument:::
   
