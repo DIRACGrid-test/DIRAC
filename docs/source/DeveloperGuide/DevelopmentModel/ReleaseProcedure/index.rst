@@ -5,8 +5,27 @@ Making DIRAC releases
 =============================
 
 This section is describing the procedure to follow by release managers
-when preparing new DIRAC releases. The procedure consists of several
-steps:
+when preparing new DIRAC releases (including patches). 
+
+Prerequisites
+=============
+
+The release manager needs to:
+
+- be aware of the DIRAC repository structure and branching.
+- have push access to the "release" repository, so the one on GitHub (being part of the project "owners")
+
+The release manager of LHCbDIRAC has the triple role of:
+
+1. creating the release
+2. making basic verifications
+3. deploying DIRAC tarballs
+
+
+1. Creating the release(s)
+==========================
+
+The procedure consists of several steps:
 
 - Merge *Pull Requests* 
 - Propagate patches to downstream release
@@ -29,7 +48,7 @@ After that the remote release branch is in the state ready to be tagged with the
 
 
 Release notes
---------------
+``````````````
 
 Release notes are contained in the *release.notes* file. Each release version has a dedicated
 section in this file, for example::
@@ -147,8 +166,8 @@ with standard tools on test DIRAC servers, for example::
   > git push release integration
 
 
-Testing the tags just created
------------------------------
+2. Making basic verifications
+=============================
 
 There are a set of basic tests that can be done on releases. 
 The first test can be done even before creating a release tarball.
@@ -161,8 +180,8 @@ there's a good chance (but NOT the certainty) that the created tags are also san
 A second test is represented by pylint. [pylint -> expand!]
 
 
-How to make a distribution
------------------------------
+3. Deploying DIRAC tarballs
+=============================
 
 Once the release branches are tagged and pushed, the new release versions are
 properly described in the *release.cfg* file in the *integration* branch and
@@ -170,7 +189,7 @@ also pushed to the central repository, the tar archives containing the new
 codes can be created. Just execute *dirac-distribution* command with the appropriate 
 flags. For instance::
 
- dirac-distribution -r v6r14p48 -l DIRAC 
+ dirac-distribution -r v6r14p36 -l DIRAC 
  
 You can also pass the releases.cfg to use via command line using the *-C* switch. *dirac-distribution* 
 will generate a set of tarballs, release and md5 files. Please copy those to your installation source 
@@ -179,3 +198,6 @@ so *dirac-install* can find them.
 The command will compile tar files as well as release notes in *html* and *pdf* formats.
 In the end of its execution, the *dirac-distribution* will print out a command that can be 
 used to upload generated release files to a predefined repository ( see :ref:`dirac_projects` ).
+
+It's now time to advertise that new releases have been created. Use the DIRAC google forum.
+
