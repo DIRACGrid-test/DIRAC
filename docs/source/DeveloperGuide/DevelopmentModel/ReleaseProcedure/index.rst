@@ -108,7 +108,7 @@ from which we already derived production tags. We then have to propagate the cha
 rel-v61r4 to rel-v6r15. Note that if even the patch was made to an upstream release branch, the subsequent
 release branch must also receive a new patch release tag. Multiple patches can be
 add in one release operation. If the downstream release branch has got its own patches,
-those should be described in its release notes under the v6r11p1 section. ::
+those should be described in its release notes under the v6r14p36 section. ::
 
   > git checkout -b rel-v6r15 release/rel-v6r15 # We start by checking out the rel-v6r15 branch
   > git merge rel-v6r14 # Merge to rel-v6r15 what we have advanced in rel-v6r14
@@ -121,7 +121,7 @@ creating tag v6r14p36. We should then repeat the process for v6r15::
 
   > vim release.notes
 
-Merge PRs (if any), then save the release.notes and::
+Merge PRs (if any), then save the release.notes. Then, modify the __init__.py file and define the version. Then::
 
   > git commit -a #this will commit the changes we made to the release notes in rel-v6r15 local branch
   > git fetch release #this will bring in the updated release/rel-v6r15 branch from the github repository
