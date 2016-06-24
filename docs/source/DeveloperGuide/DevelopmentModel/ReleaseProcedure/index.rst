@@ -110,10 +110,13 @@ release branch must also receive a new patch release tag. Multiple patches can b
 add in one release operation. If the downstream release branch has got its own patches,
 those should be described in its release notes under the v6r11p1 section. ::
 
-  > git checkout b rel-v6r15 release/rel-v6r15 # We start by checking out the rel-v6r15 branch
+  > git checkout -b rel-v6r15 release/rel-v6r15 # We start by checking out the rel-v6r15 branch
   > git merge rel-v6r14 # Merge to rel-v6r15 what we have advanced in rel-v6r14
 
-You may have already noticed that now the process looks very similar to what we have already done for 
+The last command may result in merge conflicts, which should be resolved "by hand".
+One typical conflict is about the content of the release.notes file.
+
+From now on, the process will look very similar to what we have already done for 
 creating tag v6r14p36. We should then repeat the process for v6r15::
 
   > vim release.notes
@@ -150,7 +153,12 @@ Testing the tags just created
 There are a set of basic tests that can be done on releases. 
 The first test can be done even before creating a release tarball.
 
-[pylint -> expand!]
+A first test is done automatically by Travis: https://travis-ci.org/DIRACGrid/DIRAC/branches
+
+Travis also runs on all the Pull Requests, so if for all the PRs merged travis didn't show any problem,
+there's a good chance (but NOT the certainty) that the created tags are also sane.
+
+A second test is represented by pylint. [pylint -> expand!]
 
 
 How to make a distribution
