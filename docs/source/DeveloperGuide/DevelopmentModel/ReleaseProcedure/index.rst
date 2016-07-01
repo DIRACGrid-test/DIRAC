@@ -189,7 +189,7 @@ also pushed to the central repository, the tar archives containing the new
 codes can be created. Just execute *dirac-distribution* command with the appropriate 
 flags. For instance::
 
- dirac-distribution -r v6r14p36 -l DIRAC 
+ dirac-distribution -r v6r14p36 -l DIRAC  -B
  
 You can also pass the releases.cfg to use via command line using the *-C* switch. *dirac-distribution* 
 will generate a set of tarballs, release and md5 files. Please copy those to your installation source 
